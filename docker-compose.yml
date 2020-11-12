@@ -1,0 +1,29 @@
+# RECUERDA crear el directorio "data/" para montar el volumen de la BD
+# Para conectarse a mongodb desde MongoDBCompass, usar esta string:
+# mongodb://localhost:27018/
+version: "3"
+services:
+  api:
+    build: .
+    hostname: node_api
+    container_name: node_api
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+  mongo:
+    image: mongo:latest
+    hostname: mongo_database
+    container_name: mongo_database
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27018:27017"
+    networks:
+      - backend
+networks:
+  backend:
