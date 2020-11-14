@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb://mongo_database/globo_rural", {
+mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
 
 app.get("/", function (request, response) {
-    return response.send("Hello World!");
-  });
+  return response.send("Hello World! " + process.env.MONGO_URL);
+});
 
 app.listen(8080);

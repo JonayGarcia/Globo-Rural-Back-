@@ -1,6 +1,12 @@
-# RECUERDA crear el directorio "data/" para montar el volumen de la BD
 # Para conectarse a mongodb desde MongoDBCompass, usar esta string:
-# mongodb://localhost:27018/
+# mongodb://usuario:contraseña@localhost:27018/
+#
+# Es necesario crear un fichero .env e introducir estas variables dentro:
+# MONGO_INITDB_DATABASE=nombre de la base de datos
+# MONGO_INITDB_ROOT_USERNAME=usuario administrador de la BD
+# MONGO_INITDB_ROOT_PASSWORD=contraseña de ese usuario
+# MONGO_URL=url que usará JS para conectarse
+#
 version: "3"
 services:
   api:
@@ -8,6 +14,7 @@ services:
     hostname: node_api
     container_name: node_api
     restart: always
+    env_file: .env
     depends_on:
       - mongo
     ports:
@@ -19,8 +26,9 @@ services:
     hostname: mongo_database
     container_name: mongo_database
     restart: always
+    env_file: .env
     volumes:
-      - ./data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     ports:
       - "27018:27017"
     networks:
