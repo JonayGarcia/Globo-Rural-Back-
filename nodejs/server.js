@@ -14,4 +14,4 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use("/api/shops", require("./api/shops/shops.router"));
 app.use("/api/products", require("./api/products/products.router"));
 
-app.listen(8080);
+app.listen(3000);
