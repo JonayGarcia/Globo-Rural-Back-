@@ -10,5 +10,6 @@ function getShopsByPostcode(request, response){
     return ShopModel.find({ postcode })
     .then(shops => {
         return response.json(shops);
-    });
+    })
+    .catch(info => response.status(500).send(info));
 }
