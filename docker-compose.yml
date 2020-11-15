@@ -10,7 +10,7 @@
 version: "3"
 services:
   api:
-    build: .
+    build: ./nodejs
     hostname: node_api
     container_name: node_api
     restart: always
@@ -28,7 +28,7 @@ services:
     restart: always
     env_file: .env
     volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     ports:
       - "27018:27017"
     networks:
