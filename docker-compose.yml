@@ -28,7 +28,7 @@ services:
     restart: always
     env_file: .env
     volumes:
-      - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongodb/init.js:/docker-entrypoint-initdb.d/init.js:ro
     ports:
       - "27018:27017"
     networks:
