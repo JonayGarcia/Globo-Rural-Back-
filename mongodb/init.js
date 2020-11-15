@@ -179,10 +179,47 @@ const PRODUCTS = [
   },
 ];
 
-SHOPS.forEach(shop => {
+const CARRIERS = [
+  {
+    name: "Eduardo Ortega",
+    email: "correo@gmail.com",
+    phone: "939-555-0113",
+    working_postcodes: ["35018", "35200", "35400", "35219"],
+  },
+  {
+    name: "Jonay García",
+    email: "correo2@gmail.com",
+    phone: "939-333-0113",
+    working_postcodes: ["35018", "35219"],
+  },
+  {
+    name: "José Mejias",
+    email: "correo3@gmail.com",
+    phone: "939-222-0113",
+    working_postcodes: ["35200", "35400", "35219"],
+  },
+  {
+    name: "Bryan Tamayo",
+    email: "correo4@gmail.com",
+    phone: "939-111-0113",
+    working_postcodes: ["35400", "35219"],
+  },
+  {
+    name: "Guzman Hernández",
+    email: "correo5@gmail.com",
+    phone: "939-444-0113",
+    working_postcodes: ["35219"],
+  },
+];
+
+SHOPS.forEach((shop) => {
   const object_id = ObjectId();
   db.shops.insert({ _id: object_id, ...shop });
-  PRODUCTS.forEach(product => {
-    db.products.insert({ ...product, shop_id: object_id});
+  PRODUCTS.forEach((product) => {
+    db.products.insert({ ...product, shop_id: object_id });
   });
+});
+
+CARRIERS.forEach((carrier) => {
+  db.carriers.insert({ ...carrier });
 });

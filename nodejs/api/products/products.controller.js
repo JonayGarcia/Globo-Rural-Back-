@@ -11,5 +11,5 @@ function getProductsByShop(request, response){
     .then(products => {
         return response.json(products);
     })
-    .catch(info => response.status(500).send(info));
+    .catch((e) => response.status(500).send(`Error P1 en servidor. ${e}`));
 }
