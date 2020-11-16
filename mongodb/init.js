@@ -2,7 +2,7 @@ const SHOPS = [
   {
     name: "Tienda1",
     email: "Sincere@april.biz",
-    postCode: "35018",
+    postcode: "35018",
     phone: "928000001",
     logo:
       "https://cdn.dribbble.com/users/24078/screenshots/14343984/media/35c85ad9172eb95a292d363c287ae918.jpg",
@@ -10,14 +10,14 @@ const SHOPS = [
   {
     name: "Tienda2",
     email: "Shanna@melissa.tv",
-    postCode: "35018",
+    postcode: "35018",
     phone: "928000002",
     logo:
       "https://cdn.dribbble.com/users/24078/screenshots/14365732/media/9744573663695e5c4b12a97ecd5064ba.jpg",
   },
   {
     name: "Tienda3",
-    postCode: "35200",
+    postcode: "35200",
     phone: "928000003",
     logo:
       "https://cdn.dribbble.com/users/24078/screenshots/13972510/media/84fffa5c27472436f50ad8ac544dea31.jpg",
@@ -25,7 +25,7 @@ const SHOPS = [
   {
     name: "Tienda4",
     email: "Julianne.OConner@kory.org",
-    postCode: "35400",
+    postcode: "35400",
     phone: "928000004",
     logo:
       "https://cdn.dribbble.com/users/24078/screenshots/14533792/media/7e9dd669880bab07e025b563d1d92199.jpg",
@@ -33,7 +33,7 @@ const SHOPS = [
   {
     name: "Tienda5",
     email: "Karley_Dach@jasper.info",
-    postCode: "35018",
+    postcode: "35018",
     phone: "928000005",
     logo:
       "https://cdn.dribbble.com/users/13604/screenshots/14459739/media/e6d0447abca04c409cb5f0d63ab83aa2.jpg",
@@ -41,7 +41,7 @@ const SHOPS = [
   {
     name: "Tienda6",
     email: "Sherwood@rosamond.me",
-    postCode: "35200",
+    postcode: "35200",
     phone: "928000006",
     logo:
       "https://cdn.dribbble.com/users/24078/screenshots/14562865/media/130e993838dec40962316d5fde601ec2.jpg",
@@ -49,7 +49,7 @@ const SHOPS = [
   {
     name: "Tienda7",
     email: "Chaim_McDermott@dana.io",
-    postCode: "35400",
+    postcode: "35400",
     phone: "928000007",
     logo:
       "https://cdn.dribbble.com/users/52084/screenshots/14307957/media/5b726212f3b7f7c7f58c91b77fbbe4a5.jpg",
@@ -57,7 +57,7 @@ const SHOPS = [
   {
     name: "Tienda8",
     email: "Rey.Padberg@karina.biz",
-    postCode: "35219",
+    postcode: "35219",
     phone: "928000008",
     logo:
       "https://cdn.dribbble.com/users/230124/screenshots/14349126/media/ae035ed4da5b9f34179d8bd2e1460d17.jpg",
@@ -65,7 +65,7 @@ const SHOPS = [
   {
     name: "Tienda9",
     email: "Rey.Padberg@karina.biz",
-    postCode: "35200",
+    postcode: "35200",
     phone: "928000009",
     logo:
       "https://cdn.dribbble.com/users/13604/screenshots/14443801/media/4258f865fe493d5103ca14f0c3a48f53.jpg",
@@ -73,7 +73,7 @@ const SHOPS = [
   {
     name: "Tienda10",
     email: "Rey.Padberg@karina.biz",
-    postCode: "35200",
+    postcode: "35200",
     phone: "928000010",
     logo:
       "https://cdn.dribbble.com/users/230124/screenshots/14392993/media/4536da1ab367f3083a07281820c311e2.jpg",
@@ -179,10 +179,47 @@ const PRODUCTS = [
   },
 ];
 
-SHOPS.forEach(shop => {
+const CARRIERS = [
+  {
+    name: "Eduardo Ortega",
+    email: "correo@gmail.com",
+    phone: "939-555-0113",
+    working_postcodes: ["35018", "35200", "35400", "35219"],
+  },
+  {
+    name: "Jonay García",
+    email: "correo2@gmail.com",
+    phone: "939-333-0113",
+    working_postcodes: ["35018", "35219"],
+  },
+  {
+    name: "José Mejias",
+    email: "correo3@gmail.com",
+    phone: "939-222-0113",
+    working_postcodes: ["35200", "35400", "35219"],
+  },
+  {
+    name: "Bryan Tamayo",
+    email: "correo4@gmail.com",
+    phone: "939-111-0113",
+    working_postcodes: ["35400", "35219"],
+  },
+  {
+    name: "Guzman Hernández",
+    email: "correo5@gmail.com",
+    phone: "939-444-0113",
+    working_postcodes: ["35219"],
+  },
+];
+
+SHOPS.forEach((shop) => {
   const object_id = ObjectId();
   db.shops.insert({ _id: object_id, ...shop });
-  PRODUCTS.forEach(product => {
-    db.products.insert({ ...product, shop_id: object_id});
+  PRODUCTS.forEach((product) => {
+    db.products.insert({ ...product, shop_id: object_id });
   });
+});
+
+CARRIERS.forEach((carrier) => {
+  db.carriers.insert({ ...carrier });
 });

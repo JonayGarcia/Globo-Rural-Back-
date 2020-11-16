@@ -1,15 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+
 app.use(express.json());
-
 mongoose.connect(process.env.MONGO_URL, {
-  useUnifiedTopology: true,
   useNewUrlParser: true,
+  useUnifiedTopology: true,
+  auth: { authSource: "admin" },
+  user: process.env.MONGO_INITDB_ROOT_USERNAME,
+  pass: process.env.MONGO_INITDB_ROOT_PASSWORD,
 });
 
-app.get("/", function (request, response) {
-  return response.send("Hello World! " + process.env.MONGO_URL);
-});
+app.use("/api/shops", require("./api/shops/shops.router"));
+app.use("/api/products", require("./api/products/products.router"));
 
-app.listen(8080);
+app.listen(3000);
