@@ -1,4 +1,5 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
+const HttpCode = require("../http-codes");
 const UserModel = require("./users.model");
 
 module.exports = {
@@ -17,7 +18,7 @@ async function existUser(email) {
 
 async function register(request, response) {
   if (isBodyEmpty(request.body))
-    return response.status(400).send("Contenido del body vacío");
+    return response.status(HttpCode.bad_request).send("Contenido del body vacío");
   const user = request.body;
   if (await existUser(user.email))
     return response
@@ -30,22 +31,28 @@ async function register(request, response) {
     postcode: user.postcode,
     phone: user.phone,
     password: bcrypt.hashSync(user.password, 10),
-  }).then((user) => {
-      return response.status(201).json({
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        postcode: user.postcode,
-        phone: user.phone
-      });
-    })
-    .catch((e) => response.status(500).send(`Error U1 en servidor. ${e}`));
+  })
+    .then((user) => response.status(HttpCode.created).json(getUserObject(user)))
+    .catch((e) => response.status(HttpCode.server_error).send(`Error U1 en servidor. ${e}`));
 }
 
 function getById(request, response) {
+  if (request.authorization.sub != request.params.id) {
+    return response.status(HttpCode.forbidden).send("Acceso no autorizado!");
+  }
   return UserModel.findById(request.params.id)
     .then((user) => {
-      return response.status(200).json(user);
+      return response.status(HttpCode.ok).json(getUserObject(user));
     })
-    .catch((e) => response.status(500).send(`Error U1 en servidor. ${e}`));
+    .catch((e) => response.status(HttpCode.server_error).send(`Error U2 en servidor. ${e}`));
+}
+
+function getUserObject(user) {
+  return {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+    postcode: user.postcode,
+    phone: user.phone,
+  };
 }
