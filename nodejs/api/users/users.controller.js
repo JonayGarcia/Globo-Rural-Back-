@@ -3,6 +3,7 @@ const UserModel = require("./users.model");
 
 module.exports = {
   register,
+  getById,
 };
 
 function isBodyEmpty(body) {
@@ -37,6 +38,14 @@ async function register(request, response) {
         postcode: user.postcode,
         phone: user.phone
       });
+    })
+    .catch((e) => response.status(500).send(`Error U1 en servidor. ${e}`));
+}
+
+function getById(request, response) {
+  return UserModel.findById(request.params.id)
+    .then((user) => {
+      return response.status(200).json(user);
     })
     .catch((e) => response.status(500).send(`Error U1 en servidor. ${e}`));
 }
