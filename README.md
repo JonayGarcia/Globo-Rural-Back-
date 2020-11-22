@@ -13,7 +13,10 @@ MONGO_URL=url que usará JS para conectarse
 
 Llamadas a la API actuales:
 
-- obtener una tiendas = **/api/shops/**{id de la tienda}
-- obtener todas las tiendas = **/api/shops**
-- obtener todas las tiendas en un CP = **/api/shops?postcode=**{código postal}
-- obtener los productos de una tienda = **/api/products/shop/**{id de la tienda}
+- login de un usuario = **/api/login/** (POST: email, password)
+- registrar un usuario = **/api/user/** (POST: todos los atributos del usuario)
+- obtener los datos de un usuario = **/api/user/**{id del usuario} (GET, Requiere Token de Authenticacion)
+- obtener una tiendas = **/api/shops/**{id de la tienda} (GET)
+- obtener todas las tiendas = **/api/shops** (GET)
+- obtener todas las tiendas en un CP = **/api/shops?postcode=**{código postal} (GET)
+- obtener los productos de una tienda = **/api/products/shop/**{id de la tienda} (GET)
