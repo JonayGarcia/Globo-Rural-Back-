@@ -1,3 +1,4 @@
 .env*
+.keys/
 data/
 node_modules/
