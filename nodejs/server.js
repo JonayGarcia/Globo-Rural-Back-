@@ -6,7 +6,7 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const jsonwebtoken = require("jsonwebtoken");
 const UserModel = require("./api/users/users.model");
 const app = express();
@@ -58,21 +58,6 @@ app.use("/api/shops", require("./api/shops/shops.router"));
 app.use("/api/products", require("./api/products/products.router"));
 
 app.post("/api/login", (request, response) => {
-  const createToken = (user) => {
-    const expiresIn = "1d";
-    const payload = {
-      sub: user._id,
-      iat: Date.now(),
-    };
-    const signedToken = jsonwebtoken.sign(payload, PRIV_KEY, {
-      expiresIn: expiresIn,
-      algorithm: ALGORITHM,
-    });
-    return {
-      token: "Bearer " + signedToken,
-      expires: expiresIn,
-    };
-  };
   return UserModel.findOne({ email: request.body.email })
     .then((user) => {
       if (!user) {
@@ -81,7 +66,9 @@ app.post("/api/login", (request, response) => {
       const isValid = bcrypt.compareSync(request.body.password, user.password);
       if (isValid) {
         const tokenObject = createToken(user);
-        return response.status(200).json({ token: tokenObject.token, expiresIn: tokenObject.expires });
+        return response
+          .status(200)
+          .json({ token: tokenObject.token, expiresIn: tokenObject.expires });
       }
       return response.status(401).json("Usuario o contraseña incorrectos.");
     })
@@ -89,5 +76,22 @@ app.post("/api/login", (request, response) => {
       return response.status(500).send("Error L1 en el login.");
     });
 });
+
+
+function createToken(user) {
+  const expiresIn = "1d";
+  const payload = {
+    sub: user._id,
+    iat: Date.now(),
+  };
+  const signedToken = jsonwebtoken.sign(payload, PRIV_KEY, {
+    expiresIn: expiresIn,
+    algorithm: ALGORITHM,
+  });
+  return {
+    token: "Bearer " + signedToken,
+    expires: expiresIn,
+  };
+}
 
 app.listen(3000);
