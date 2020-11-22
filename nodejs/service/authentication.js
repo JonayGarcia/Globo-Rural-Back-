@@ -1,5 +1,6 @@
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const HttpCode = require("../http-codes");
 
 const PUB_KEY = fs.readFileSync(`${__dirname}/.keys/id_rsa.pub`, "utf8");
 const PRIV_KEY = fs.readFileSync(`${__dirname}/.keys/id_rsa`, "utf8");
@@ -24,17 +25,21 @@ module.exports = {
   middleware: (request, response, next) => {
     const authHeader = request.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
-    if (token == null) return response.sendStatus(401);
+    if (token == null) return response.status(HttpCode.unauthorized);
 
     jwt.verify(token, PUB_KEY, { algorithm: [algorithm] }, (error, data) => {
       if (error) {
         let message;
         if (error.name === "TokenExpiredError") {
-          message = "Your token has expired!";
+          return response
+            .status(HttpCode.unauthorized)
+            .send("Your token has expired!");
         } else if (error.name === "JsonWebTokenError") {
-          message = "The JWT is malformed!";
+          return response
+            .status(HttpCode.bad_request)
+            .send("The JWT is malformed!");
         }
-        return response.sendStatus(403).send(message);
+        return response.status(HttpCode.forbidden).send(message);
       }
       request.authorization = data;
       console.log({ ...data });

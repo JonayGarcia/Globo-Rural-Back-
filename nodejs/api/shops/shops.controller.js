@@ -1,6 +1,6 @@
 const ShopModel = require("./shops.model");
 const CarrierModel = require("../carriers/carriers.model");
-const HttpCode = require("../http-codes");
+const HttpCode = require("../../http-codes");
 
 module.exports = {
   getAllShops,

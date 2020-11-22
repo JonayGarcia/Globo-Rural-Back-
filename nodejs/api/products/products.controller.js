@@ -1,5 +1,5 @@
 const ProductModel = require('./products.model');
-const HttpCode = require("../http-codes");
+const HttpCode = require("../../http-codes");
 
 module.exports = {
     getProductsByShop

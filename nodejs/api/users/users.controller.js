@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const HttpCode = require("../http-codes");
+const HttpCode = require("../../http-codes");
 const UserModel = require("./users.model");
 
 module.exports = {
