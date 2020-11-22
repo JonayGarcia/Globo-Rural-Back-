@@ -59,7 +59,7 @@ app.use("/api/products", require("./api/products/products.router"));
 
 app.post("/api/login", (request, response) => {
   const createToken = (user) => {
-    const expiresIn = "15m";
+    const expiresIn = "1d";
     const payload = {
       sub: user._id,
       iat: Date.now(),
