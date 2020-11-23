@@ -6,8 +6,14 @@ module.exports = {
 
 
 function getProductsByShop(request, response){
-    const { shop_id } = request.params;
-    return ProductModel.find({ shop_id })
+    const { shop_id  }   = request.params;
+    const { category }   = request.query; 
+    const filter = {
+        ...{ shop_id },
+        ...( category? { category } : null )
+
+    };
+    return ProductModel.find(filter)
     .then(products => {
         return response.json(products);
     })

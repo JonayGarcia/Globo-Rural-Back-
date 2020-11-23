@@ -88,6 +88,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/h91/hc6/9997490028574.jpg",
     stock: 4,
+    category: "Charcutería",
   },
   {
     name: "ASTURIANA leche entera envase 1 lt",
@@ -96,6 +97,8 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/h79/hd3/10248592195614.jpg",
     stock: 4,
+    category: "Lácteos y Huevos",
+
   },
   {
     name: "KELLOGGS cereales corn flakes caja 500 gr",
@@ -104,6 +107,8 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s1.dia.es/medias/hb0/h74/10020531666974.jpg",
     stock: 4,
+    category: "Cereales",
+
   },
   {
     name: "Huevos frescos categoría A clase L estuche 12 uds",
@@ -112,6 +117,8 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/hf5/h58/10174922194974.jpg",
     stock: 4,
+    category: "Lácteos y Huevos",
+
   },
   {
     name: "CASA TARRADELLAS pizza jamón y queso envase 405 gr ",
@@ -120,6 +127,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s2.dia.es/medias/heb/hc9/10280254537758.jpg",
     stock: 4,
+    category: "Comida preparada",
   },
   {
     name: "COCA COLA light sin cafeína lata 33 cl ",
@@ -128,6 +136,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/h2b/h10/10314369368094.jpg",
     stock: 4,
+    category: "Bebidas",
   },
   {
     name: "COCA COLA clásica pack 12 latas 33 cl ",
@@ -136,6 +145,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s3.dia.es/medias/h0a/h98/10259077300254.jpg",
     stock: 4,
+    category: "Bebidas",
   },
   {
     name: "BIMBO pan de molde blanco sin corteza bolsa 450 gr ",
@@ -144,6 +154,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/hbe/h21/10268049637406.jpg",
     stock: 4,
+    category: "Panes",
   },
   {
     name: "BIMBO pan de hamburguesas 4 uds bolsa 300 gr ",
@@ -152,6 +163,8 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/ha9/he4/9001529081886.jpg",
     stock: 4,
+    category: "Panes",
+
   },
   {
     name: "HELLMANN'S mayonesa frasco 450 ml  ",
@@ -160,6 +173,8 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s2.dia.es/medias/hf8/h88/10335757107230.jpg",
     stock: 4,
+    category: "Salsas",
+
   },
   {
     name: "CHIPS AHOY mini galletas caja 160 gr  ",
@@ -168,6 +183,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s0.dia.es/medias/h70/h45/10299379154974.jpg",
     stock: 4,
+    category: "Galletas",
   },
   {
     name: "HIDA tomate doble concentrado lata 170 gr   ",
@@ -176,6 +192,7 @@ const PRODUCTS = [
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
     image: "https://s1.dia.es/medias/hcc/h6d/10322705514526.jpg",
     stock: 4,
+    category: "Salsas",
   },
 ];
 
