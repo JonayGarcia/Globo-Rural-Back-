@@ -20,3 +20,4 @@ Llamadas a la API actuales:
 - obtener todas las tiendas = **/api/shops** (GET)
 - obtener todas las tiendas en un CP = **/api/shops?postcode=**{código postal} (GET)
 - obtener los productos de una tienda = **/api/products/shop/**{id de la tienda} (GET)
+- obtener los productos de una tienda por categoría = **/api/products/shop/**{id de la tienda}**?category=**{nombre de la categoría} (GET)
