@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
+
 const app = express();
 
 app.use(cors());
@@ -13,6 +14,7 @@ mongoose.connect(process.env.MONGO_URL, {
   pass: process.env.MONGO_INITDB_ROOT_PASSWORD,
 });
 
+app.use("/api/user", require("./api/users/users.router"));
 app.use("/api/shops", require("./api/shops/shops.router"));
 app.use("/api/products", require("./api/products/products.router"));
 
