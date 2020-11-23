@@ -13,7 +13,7 @@ MONGO_URL=url que usará JS para conectarse
 
 Llamadas a la API actuales:
 
-- login de un usuario = **/api/login/** (POST: email, password)
+- login de un usuario = **/api/user/login/** (POST: email, password)
 - registrar un usuario = **/api/user/** (POST: todos los atributos del usuario)
 - obtener los datos de un usuario = **/api/user/**{id del usuario} (GET, Requiere Token de Authenticacion)
 - obtener una tiendas = **/api/shops/**{id de la tienda} (GET)
