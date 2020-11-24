@@ -26,7 +26,7 @@ async function register(request, response) {
   const user = request.body;
   if (await existUser(user.email))
     return response
-      .status(409)
+      .status(HttpCode.conflict)
       .send("Ya existe un usuario con ese correo electrónico.");
 
   return UserModel.create({
