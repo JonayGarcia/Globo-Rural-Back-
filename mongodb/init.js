@@ -171,7 +171,7 @@ const PRODUCTS = [
     price: "1.89",
     description:
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",
-    image: "https://s2.dia.es/medias/hf8/h88/10335757107230.jpg",
+    image: "https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/05/00118014300117____12__600x600.jpg",
     stock: 4,
     category: "Salsas",
 
