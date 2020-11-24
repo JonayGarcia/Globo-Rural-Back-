@@ -25,7 +25,8 @@ module.exports = {
   middleware: (request, response, next) => {
     const authHeader = request.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
-    if (token == null) return response.status(HttpCode.unauthorized);
+    if (token == null)
+      return response.status(HttpCode.unauthorized).send("Unauthorized!");
 
     jwt.verify(token, PUB_KEY, { algorithm: [algorithm] }, (error, data) => {
       if (error) {
