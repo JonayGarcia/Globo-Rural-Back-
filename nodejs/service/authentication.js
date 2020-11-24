@@ -29,7 +29,6 @@ module.exports = {
 
     jwt.verify(token, PUB_KEY, { algorithm: [algorithm] }, (error, data) => {
       if (error) {
-        let message;
         if (error.name === "TokenExpiredError") {
           return response
             .status(HttpCode.unauthorized)
@@ -39,7 +38,7 @@ module.exports = {
             .status(HttpCode.bad_request)
             .send("The JWT is malformed!");
         }
-        return response.status(HttpCode.forbidden).send(message);
+        return response.status(HttpCode.forbidden).send("Forbidden!");
       }
       request.authorization = data;
       console.log({ ...data });
