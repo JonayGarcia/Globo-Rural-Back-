@@ -78,7 +78,7 @@ function login(request, response) {
         const tokenObject = authentication.createToken(user);
         return response
           .status(HttpCode.ok)
-          .json({ token: tokenObject.token, expiresIn: tokenObject.expires });
+          .json({ token: tokenObject.token, user_id: user._id });
       }
       return response
         .status(HttpCode.unauthorized)

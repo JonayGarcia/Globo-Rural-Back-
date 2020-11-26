@@ -37,6 +37,11 @@ const OrderSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  state: {
+    type: String,
+    enum: ["Pendiente de Envío", "En tránsito", "Entregado"],
+    default: "Pendiente de Envío",
+  },
 });
 
 module.exports = mongoose.model("order", OrderSchema);
