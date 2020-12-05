@@ -139,7 +139,7 @@ const PRODUCTS = [
     category: "Bebidas",
   },
   {
-    name: "COCA COLA clásica pack 12 latas 33 cl ",
+    name: "COCA COLA 'classic' pack 12 latas 33 cl ",
     price: "7.99",
     description:
       "Lonchas de Jamón Curado Extremadura, un producto elaborado en nuestras bodegas de Trujillo (Cáceres). Con este producto podrás disfrutar del mejor sabor, listo para consumir y disfrutaren cualquier momento. Sin colorantes, sin gluten y sin lactosa. Cada producto tiene un peso total de 138g ",

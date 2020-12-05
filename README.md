@@ -23,6 +23,7 @@ Llamadas a la API actuales:
 - obtener todas las tiendas en un CP = **/api/shops?postcode=**{código postal} (GET)
 - obtener los productos de una tienda = **/api/products/shop/**{id de la tienda} (GET)
 - obtener los productos de una tienda por categoría = **/api/products/shop/**{id de la tienda}**?category=**{nombre de la categoría} (GET)
+- obtener los productos de una tienda por nombre = **/api/products/shop/**{id de la tienda}**?name=**{patron que se desea buscar dentro del nombre} (GET) (la búsqueda no distingue entre mayúsculas y minúsculas pero si es sensible a caracteres con signos diacríticos)
 - realizar un pedido en una tienda = **/api/orders** (POST, Requiere Token de Authenticacion y estos datos: delivery_address, totalPrice, products<sup>[1]</sup>)
 
 
