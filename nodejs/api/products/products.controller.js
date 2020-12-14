@@ -1,5 +1,7 @@
 const ProductModel = require('./products.model');
 const HttpCode = require("../../http-codes");
+const escapeStringRegexp = require('escape-string-regexp');
+
 
 module.exports = {
     getProductsByShop
@@ -8,10 +10,11 @@ module.exports = {
 
 function getProductsByShop(request, response){
     const { shop_id  }   = request.params;
-    const { category }   = request.query; 
+    const { category, name }   = request.query; 
     const filter = {
         ...{ shop_id },
-        ...( category? { category } : null )
+        ...( category && { category } ),
+        ...(name && { name: { $regex: escapeStringRegexp(name), $options: 'i' }} ) 
 
     };
     return ProductModel.find(filter)
